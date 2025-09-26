@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FΛLC | About Us</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
+@import url('   https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css   ');
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Space Grotesk', sans-serif;
+background-color: #fff;
+color: #000;
+cursor: default;
+overflow-x: hidden;
+}
+
+/* Header */
+.header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 20px 5%;
+z-index: 10;
+backdrop-filter: blur(10px);
+background-color: rgba(255, 255, 255, 0.9);
+box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+width: 100%;
+}
+
+.logo {
+font-size: 1.8rem;
+font-weight: 700;
+letter-spacing: 4px;
+color: #000;
+font-family: 'Orbitron', sans-serif;
+text-transform: uppercase;
+position: relative;
+cursor: pointer;
+}
+
+.logo:hover {
+color: #000;
+text-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.nav-links {
+display: flex;
+gap: 40px;
+margin-left: 80px; /* Increased spacing between logo and navigation */
+}
+
+.nav-links a {
+font-weight: 500;
+font-size: 0.95rem;
+text-transform: uppercase;
+letter-spacing: 2px;
+color: rgba(0, 0, 0, 0.6);
+position: relative;
+transition: all 0.3s ease;
+cursor: pointer;
+}
+
+.nav-links a.active {
+color: #000;
+}
+
+.nav-links a::after {
+content: '';
+position: absolute;
+bottom: -5px;
+left: 0;
+width: 0;
+height: 1px;
+background-color: #000;
+transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+color: #000;
+}
+
+.nav-links a:hover::after {
+width: 100%;
+}
+
+.search-bar {
+position: relative;
+margin-left: auto;
+}
+
+.search-bar input {
+padding: 8px 15px 8px 40px;
+border: 1px solid rgba(0, 0, 0, 0.2);
+border-radius: 30px;
+background-color: rgba(255, 255, 255, 0.7);
+font-family: 'Space Grotesk', sans-serif;
+font-size: 0.9rem;
+width: 220px;
+transition: all 0.3s ease;
+outline: none;
+}
+
+.search-bar input:focus {
+width: 250px;
+background-color: white;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-icon {
+position: absolute;
+left: 15px;
+top: 50%;
+transform: translateY(-50%);
+color: rgba(0, 0, 0, 0.5);
+}
+
+.cart-icon {
+margin-left: 20px;
+position: relative;
+cursor: pointer;
+}
+
+.profile-icon {
+margin-left: 20px;
+cursor: pointer;
+color: #000; /* Explicitly set to black */
+transition: all 0.3s ease;
+}
+
+.profile-icon:hover {
+color: #000;
+text-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.cart-count {
+position: absolute;
+top: -10px;
+right: -10px;
+background-color: #000;
+color: white;
+font-size: 0.7rem;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+/* Cart Dropdown */
+.cart-dropdown {
+position: absolute;
+top: 100%;
+right: 5%;
+width: 350px;
+background-color: white;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+z-index: 1000;
+transform: translateY(10px);
+opacity: 0;
+visibility: hidden;
+transition: all 0.3s ease;
+max-height: 70vh;
+overflow-y: auto;
+}
+
+.cart-dropdown.active {
+transform: translateY(0);
+opacity: 1;
+visibility: visible;
+}
+
+.cart-header {
+padding: 15px 20px;
+border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+font-weight: 600;
+font-size: 1.1rem;
+}
+
+.cart-items {
+padding: 10px 0;
+}
+
+.cart-item {
+display: flex;
+padding: 15px 20px;
+border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.cart-item-image {
+width: 70px;
+height: 70px;
+object-fit: cover;
+border-radius: 4px;
+margin-right: 15px;
+}
+
+.cart-item-details {
+flex: 1;
+}
+
+.cart-item-name {
+font-weight: 500;
+margin-bottom: 5px;
+}
+
+.cart-item-size {
+font-size: 0.85rem;
+color: rgba(0, 0, 0, 0.6);
+margin-bottom: 5px;
+}
+
+.cart-item-price {
+font-weight: 600;
+}
+
+.cart-item-quantity {
+display: flex;
+align-items: center;
+gap: 10px;
+margin-top: 5px;
+}
+
+.cart-item-quantity span {
+font-size: 0.9rem;
+color: rgba(0, 0, 0, 0.7);
+}
+
+.cart-item-remove {
+color: rgba(0, 0, 0, 0.4);
+cursor: pointer;
+transition: color 0.2s ease;
+}
+
+.cart-item-remove:hover {
+color: #000;
+}
+
+.cart-footer {
+padding: 15px 20px;
+border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.cart-total {
+display: flex;
+justify-content: space-between;
+font-weight: 600;
+margin-bottom: 15px;
+}
+
+.checkout-btn {
+width: 100%;
+padding: 12px;
+background: #000;
+color: white;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 1px;
+border: none;
+border-radius: 0;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+
+.checkout-btn:hover {
+background: rgba(0, 0, 0, 0.8);
+transform: translateY(-2px);
+}
+
+.empty-cart {
+padding: 20px;
+text-align: center;
+color: rgba(0, 0, 0, 0.5);
+}
+
+/* About Us Section */
+.about-us {
+padding: 10px 5% 20px;
+max-width: 800px;
+margin: 0 auto;
+}
+
+.logo-image {
+display: block;
+width: 100px;
+height: 100px;
+margin: 0 auto 8px;
+object-fit: contain;
+}
+
+.about-title {
+font-size: 3.5rem;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 4px;
+text-align: center;
+margin-bottom: 20px;
+line-height: 1;
+text-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.about-content {
+font-size: 1.2rem;
+line-height: 1.8;
+color: rgba(0, 0, 0, 0.7);
+text-align: center;
+}
+
+.about-content p {
+margin-bottom: 30px;
+}
+
+/* Footer */
+.footer {
+background-color: #1a1a1a;
+padding: 60px 5%;
+}
+
+.footer-grid {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 80px;
+color: white;
+max-width: 1400px;
+margin: 0 auto;
+}
+
+.footer-column {
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+
+.footer-heading {
+font-size: 1.1rem;
+font-weight: 500;
+text-transform: uppercase;
+letter-spacing: 1px;
+margin-bottom: 20px;
+}
+
+.footer-links ul {
+list-style: none;
+gap: 8px;
+padding-left: 0;
+}
+
+.footer-links li {
+margin-bottom: 10px;
+}
+
+.footer-links li a {
+color: white;
+text-decoration: none;
+transition: all 0.3s ease;
+cursor: pointer;
+}
+
+.footer-links li a:hover {
+color: #000;
+text-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.social-links {
+display: flex;
+gap: 24px;
+align-items: center;
+}
+
+.social-links a {
+color: white;
+text-decoration: none;
+transition: all 0.3s ease;
+font-size: 1.1rem;
+}
+
+.social-links a:hover {
+transform: translateY(-2px);
+color: #000;
+}
+
+.copyright {
+text-align: center;
+padding-top: 30px;
+color: rgba(255,255,255,0.5);
+font-size: 0.9rem;
+border-top: 1px solid rgba(255,255,255,0.1);
+margin-top: 40px;
+}
+
+@media (max-width: 992px) {
+.about-title {
+font-size: 2.5rem;
+}
+
+.about-content {
+font-size: 1.1rem;
+}
+
+.nav-links {
+gap: 20px;
+}
+
+.cart-dropdown {
+right: 2%;
+width: 96%;
+}
+}
+</style>
+
+</head>
+<body>
+<!-- Header -->
+<div class="header">
+<div class="logo" id="logo">FΛLC</div>
+
+<div class="nav-links">
+<a href="index.html" id="home-link">Home</a>
+<a href="collections.html">Collections</a>
+<a href="about-us.html" class="active">About Us</a>
+<a href="Contact Us Page.html">Contact Us</a>
+</div>
+
+<div class="search-bar">
+<i class="fas fa-search search-icon"></i>
+<input type="text" id="search-input" placeholder="Search products...">
+</div>
+
+<!-- New Profile Icon -->
+<a href="signup.html" class="profile-icon">
+<i class="fas fa-user"></i>
+</a>
+
+<div class="cart-icon">
+<i class="fas fa-shopping-cart"></i>
+<span class="cart-count">0</span>
+</div>
+
+<!-- Cart Dropdown -->
+<div class="cart-dropdown">
+<div class="cart-header">Your Cart</div>
+<div class="cart-items">
+<!-- Cart items will be added here dynamically -->
+</div>
+<div class="cart-footer">
+<div class="cart-total">
+<span>Total:</span>
+<span class="total-amount">$0.00</span>
+</div>
+<button class="checkout-btn">Checkout</button>
+<div class="empty-cart" style="display: none;">Your cart is empty</div>
+</div>
+</div> </div>
+
+<!-- About Us Content -->
+<section class="about-us">
+<img src="images/images/product-2.jpg" alt="FΛLC Logo" class="logo-image">
+<h1 class="about-title">About FΛLC</h1>
+<div class="about-content">
+<p>FΛLC is more than a clothing brand — it's a movement. Built on the values of strength, ambition, and resilience, FΛLC embodies the spirit of those who rise above limits. Our collections blend luxury design with modern sport-inspired aesthetics, delivering timeless pieces that move with you.</p>
+
+<p>Every item is crafted with precision, engineered for comfort, and designed to inspire confidence. Whether on the streets, in motion, or at rest, FΛLC is engineered to rise — just like you.</p>
+</div> </section>
+
+<!-- Footer -->
+<footer class="footer">
+<div class="footer-grid">
+<div class="footer-column">
+<div class="footer-heading">Home</div>
+<div class="footer-links">
+<ul>
+<li><a href="index.html" class="footer-home-link">Homepage</a></li>
+<li><a href="collections.html">Collections</a></li>
+</ul>
+</div>
+</div>
+
+<div class="footer-column">
+<div class="footer-heading">About</div>
+<div class="footer-links">
+<ul>
+<li><a href="about-us.html" class="active">About Us</a></li>
+<li><a href="Privacy Policy.html">Privacy Policy</a></li>
+<li><a href="Terms Of Use Page.html">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+
+<div class="footer-column">
+<div class="footer-heading">Help</div>
+<div class="footer-links">
+<ul>
+<li><a href="Contact Us Page.html">Help Center</a></li>
+<li><a href="Contact Us Page.html">Contact Us</a></li>
+</ul>
+</div>
+</div>
+
+<div class="footer-column">
+<div class="footer-heading">Connect</div>
+<div class="social-links">
+<a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+<a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+</div>
+</div>
+</div>
+
+<div class="copyright">
+© 2025 FΛLC. All rights reserved.
+</div> </footer>
+
+<script>
+// Initialize search functionality
+function initSearch() {
+const searchInput = document.getElementById('search-input');
+if (!searchInput) return;
+
+searchInput.addEventListener('input', function() {
+// Add search functionality here if needed
+});
+}
+
+// Cart functionality
+function initCart() {
+// Get DOM elements
+const cartIcon = document.querySelector('.cart-icon');
+const cartDropdown = document.querySelector('.cart-dropdown');
+const cartItemsContainer = document.querySelector('.cart-items');
+const totalAmountElement = document.querySelector('.total-amount');
+const emptyCartElement = document.querySelector('.empty-cart');
+const checkoutBtn = document.querySelector('.checkout-btn');
+
+// Initialize cart from localStorage
+let cart = JSON.parse(localStorage.getItem('falccart')) || [];
+
+// Toggle cart dropdown
+cartIcon.addEventListener('click', function(e) {
+e.stopPropagation();
+cartDropdown.classList.toggle('active');
+});
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(e) {
+if (!cartDropdown.contains(e.target) && !cartIcon.contains(e.target)) {
+cartDropdown.classList.remove('active');
+}
+});
+
+function updateCartDisplay() {
+const cartCount = document.querySelector('.cart-count');
+
+// Calculate total items
+const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+cartCount.textContent = totalItems;
+}
+
+function renderCartItems() {
+// Clear current items
+cartItemsContainer.innerHTML = '';
+
+if (cart.length === 0) {
+emptyCartElement.style.display = 'block';
+totalAmountElement.textContent = '$0.00';
+return;
+}
+
+emptyCartElement.style.display = 'none';
+
+let totalPrice = 0;
+
+// Add each item to the cart dropdown
+cart.forEach(item => {
+const itemTotal = item.price * item.quantity;
+totalPrice += itemTotal;
+
+const cartItem = document.createElement('div');
+cartItem.className = 'cart-item';
+cartItem.dataset.id = item.id;
+
+cartItem.innerHTML = `
+<img src="${item.image}" alt="${item.name}" class="cart-item-image">
+<div class="cart-item-details">
+<div class="cart-item-name">${item.name}</div>
+<div class="cart-item-size">Size: ${item.size}</div>
+<div class="cart-item-price">$${item.price.toFixed(2)}</div>
+<div class="cart-item-quantity">
+<span>Qty: ${item.quantity}</span>
+<span class="cart-item-remove" data-id="${item.id}"><i class="fas fa-trash"></i></span>
+</div>
+</div>
+`;
+
+cartItemsContainer.appendChild(cartItem);
+});
+
+// Update total amount
+totalAmountElement.textContent = `$${totalPrice.toFixed(2)}`;
+
+// Add event listeners to remove buttons
+document.querySelectorAll('.cart-item-remove').forEach(button => {
+button.addEventListener('click', function(e) {
+e.stopPropagation();
+const itemId = parseInt(this.dataset.id);
+removeFromCart(itemId);
+});
+});
+}
+
+function removeFromCart(itemId) {
+// Filter out the item to remove
+cart = cart.filter(item => item.id !== itemId);
+
+// Save to localStorage
+localStorage.setItem('falccart', JSON.stringify(cart));
+
+// Update cart display
+updateCartDisplay();
+
+// Refresh cart dropdown
+renderCartItems();
+
+// If cart is empty, hide the dropdown
+if (cart.length === 0) {
+cartDropdown.classList.remove('active');
+}
+}
+
+// Checkout button
+checkoutBtn.addEventListener('click', function() {
+if (cart.length === 0) {
+alert('Your cart is empty');
+return;
+}
+
+// In a real implementation, this would redirect to checkout page
+alert('Proceeding to checkout...');
+// window.location.href = '/checkout';
+});
+
+// Initial render
+renderCartItems();
+}
+
+// Initialize when DOM is fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+// Initialize search
+initSearch();
+
+// Initialize cart functionality
+initCart();
+});
+</script>
+</body>
+</html>

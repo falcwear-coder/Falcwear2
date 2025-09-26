@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FΛLC</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Grid Pattern -->
+<div class="grid"></div>
+
+<!-- Header -->
+<div class="header">
+  <div class="logo" id="logo">FΛLC</div>
+
+  <div class="nav-links">
+    <a href="index.html" class="active" id="home-link">Home</a>
+    <a href="collections.html">Collections</a>
+    <a href="about-us.html">About Us</a>
+    <a href="Contact Us Page.html">Contact Us</a>
+  </div>
+
+  <div class="search-bar">
+    <i class="fas fa-search search-icon"></i>
+    <input type="text" id="search-input" placeholder="Search products...">
+  </div>
+
+  <!-- Profile Icon -->
+  <a href="signup.html" class="profile-icon">
+    <i class="fas fa-user"></i>
+  </a>
+
+  <div class="cart-icon">
+    <i class="fas fa-shopping-cart"></i>
+    <span class="cart-count">0</span>
+  </div>
+
+  <!-- Cart Dropdown -->
+  <div class="cart-dropdown">
+    <div class="cart-header">Your Cart</div>
+    <div class="cart-items">
+      <!-- Cart items will be added here dynamically -->
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total:</span>
+        <span class="total-amount">$0.00</span>
+      </div>
+      <button class="checkout-btn">Checkout</button>
+      <div class="empty-cart" style="display: none;">Your cart is empty</div>
+    </div>
+  </div>
+</div>
+
+<!-- Hero Section -->
+<div class="hero-section">
+  <!-- Square Water Bubble Background -->
+  <div class="hero-bubble"></div>
+
+  <!-- Text Column - Centered Vertically on Left Side -->
+  <div class="text-column">
+    <h1>ENGINEERED <span>TO RISE</span></h1>
+    <p>FΛLC 1: First Edition T-Shirt</p>
+    <a href="collections.html">
+      <button class="btn">SHOP NOW</button>
+    </a>
+  </div>
+
+  <!-- Your Image -->
+  <div class="uploaded-image">
+    <a href="#">
+      <img src="C:\Users\Prabhroop Singh\Desktop\FΛLC Website\images\product-14.jpg" alt="Model in FΛLC Apparel">
+    </a>
+  </div>
+
+  <!-- 3D Sphere -->
+  <div class="sphere-container">
+    <div class="sphere" id="sphere"></div>
+  </div>
+</div>
+
+<!-- New Drops Section -->
+<section class="new-drops">
+  <h2 class="section-title">NEW DROPS</h2>
+  <div class="products-grid">
+    <div class="product" data-name="FΛLC 1: Black" data-price="89">
+      <a href="falc-1-black.html">
+        <img src="\Users\Prabhroop Singh\Desktop\FΛLC Website\images\collection-16.jpg" alt="FΛLC 1 Black" class="product-image">
+      </a>
+      <div class="product-info">
+        <a href="falc-1-black.html" class="product-name">FΛLC 1: Black</a>
+        <div class="product-price">$89</div>
+      </div>
+    </div>
+
+    <div class="product" data-name="FΛLC 1: White" data-price="89">
+      <a href="falc-1-white.html">
+        <img src="\Users\Prabhroop Singh\Desktop\FΛLC Website\images\product-15.jpg" alt="FΛLC 1 White" class="product-image">
+      </a>
+      <div class="product-info">
+        <a href="falc-1-white.html" class="product-name">FΛLC 1: White</a>
+        <div class="product-price">$89</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-column">
+      <div class="footer-heading">Home</div>
+      <div class="footer-links">
+        <ul>
+          <li><a href="index.html" class="footer-home-link">Homepage</a></li>
+          <li><a href="collections.html">Collections</a></li>
+          <li><a href="signup.html">Sign Up</a></li>
+          <li><a href="login.html">login</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <div class="footer-heading">About</div>
+      <div class="footer-links">
+        <ul>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="Privacy Policy.html">Privacy Policy</a></li>
+          <li><a href="Terms Of Use Page.html">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <div class="footer-heading">Help</div>
+      <div class="footer-links">
+        <ul>
+          <li><a href="Contact Us Page.html">Help Center</a></li>
+          <li><a href="Contact Us Page.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <div class="footer-heading">Connect</div>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i> Facebook</a>
+        <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="copyright">
+    © 2025 FΛLC. All rights reserved.
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

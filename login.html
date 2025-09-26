@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>FΛLC | Login</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Space Grotesk', sans-serif;
+background-color: #fff;
+color: #000;
+cursor: default;
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 20px;
+}
+
+.signup-container {
+max-width: 500px;
+width: 100%;
+padding: 35px 30px;
+background-color: #fff;
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+}
+
+.logo-image {
+display: block;
+width: 100px;
+height: 100px;
+margin: 0 auto 10px;
+object-fit: contain;
+}
+
+.form-title {
+font-size: 1.8rem;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 1px;
+text-align: center;
+margin-bottom: 20px;
+line-height: 1;
+}
+
+.form-group {
+margin-bottom: 18px;
+}
+
+.form-group label {
+display: block;
+font-weight: 500;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+font-size: 0.85rem;
+margin-bottom: 5px;
+color: rgba(0, 0, 0, 0.7);
+}
+
+.form-control {
+width: 100%;
+padding: 12px 14px;
+background-color: rgba(255, 255, 255, 0.7);
+border: 1px solid rgba(0, 0, 0, 0.2);
+border-radius: 4px;
+color: #000;
+font-size: 0.95rem;
+transition: all 0.3s ease;
+font-family: 'Space Grotesk', sans-serif;
+}
+
+.form-control:focus {
+border-color: #000;
+outline: none;
+background-color: white;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.checkbox-group {
+display: flex;
+align-items: flex-start;
+gap: 10px;
+margin-bottom: 20px;
+margin-top: 5px;
+}
+
+.checkbox-input {
+margin-top: 5px;
+width: 16px;
+height: 16px;
+border: 1px solid rgba(0, 0, 0, 0.2);
+border-radius: 2px;
+cursor: pointer;
+}
+
+.checkbox-label {
+font-size: 0.85rem;
+line-height: 1.4;
+color: rgba(0, 0, 0, 0.7);
+}
+
+.checkbox-label a {
+color: #000;
+text-decoration: none;
+font-weight: 500;
+transition: all 0.3s ease;
+}
+
+.checkbox-label a:hover {
+text-decoration: underline;
+}
+
+.btn {
+width: 100%;
+padding: 13px;
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 1px;
+border: none;
+border-radius: 0;
+cursor: pointer;
+transition: all 0.3s ease;
+font-family: 'Space Grotesk', sans-serif;
+font-size: 0.9rem;
+background: #000;
+color: white;
+}
+
+.btn:hover {
+background: rgba(0, 0, 0, 0.8);
+transform: translateY(-2px);
+box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.login-link {
+text-align: center;
+margin-top: 18px;
+font-size: 0.85rem;
+color: rgba(0, 0, 0, 0.7);
+}
+
+.login-link a {
+color: #000;
+text-decoration: none;
+font-weight: 500;
+transition: all 0.3s ease;
+}
+
+.login-link a:hover {
+text-decoration: underline;
+}
+
+/* Password field with eye icon */
+.password-container {
+position: relative;
+}
+
+.password-toggle {
+position: absolute;
+right: 15px;
+top: 50%;
+transform: translateY(-50%);
+cursor: pointer;
+color: rgba(0, 0, 0, 0.5);
+transition: color 0.3s ease;
+}
+
+.password-toggle:hover {
+color: #000;
+}
+
+/* Ensure everything fits on one screen */
+@media (max-height: 700px) {
+.signup-container {
+padding: 25px 20px;
+transform: scale(0.95);
+transform-origin: top;
+}
+
+body {
+padding: 10px;
+}
+}
+
+/* For very small screens */
+@media (max-width: 360px) {
+.signup-container {
+padding: 25px 15px;
+}
+
+.form-title {
+font-size: 1.6rem;
+margin-bottom: 15px;
+}
+
+.form-control {
+padding: 10px 12px;
+font-size: 0.9rem;
+}
+}
+</style>
+
+</head>
+<body>
+<div class="signup-container">
+<div class="logo">
+<img src="C:\Users\Prabhroop Singh\Desktop\FΛLC Website\images\product-2.jpg" alt="FΛLC Logo" class="logo-image">
+</div>
+
+<h1 class="form-title">Login</h1>
+
+<form id="login-form">
+<div class="form-group">
+<input type="email" id="email" class="form-control" placeholder="Email Address" required>
+</div>
+
+<div class="form-group">
+<div class="password-container">
+<input type="password" id="password" class="form-control" placeholder="Password" required>
+<i class="fas fa-eye password-toggle"></i>
+</div>
+</div>
+
+<div class="checkbox-group">
+<input type="checkbox" id="terms" class="checkbox-input" required>
+<label for="terms" class="checkbox-label">
+I agree to the <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms-of-use.html">Terms of Service</a>
+</label>
+</div>
+
+<button type="submit" class="btn">LOGIN</button>
+
+<div class="login-link">
+New To FΛLC? <a href="Sign-Up_Page.html">Sign Up</a>
+</div>
+</form>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Password visibility toggle
+const passwordToggle = document.querySelector('.password-toggle');
+const passwordField = document.getElementById('password');
+
+passwordToggle.addEventListener('click', function() {
+const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+passwordField.setAttribute('type', type);
+  
+// Toggle the eye icon
+if (type === 'text') {
+this.classList.remove('fa-eye');
+this.classList.add('fa-eye-slash');
+} else {
+this.classList.remove('fa-eye-slash');
+this.classList.add('fa-eye');
+}
+});
+
+// Form submission handling
+const loginForm = document.getElementById('login-form');
+
+loginForm.addEventListener('submit', function(e) {
+e.preventDefault();
+
+// Get form values
+const email = document.getElementById('email').value;
+const password = document.getElementById('password').value;
+const terms = document.getElementById('terms').checked;
+
+// Validate form
+if (!email || !password) {
+alert('Please fill in all required fields');
+return;
+}
+
+if (!terms) {
+alert('You must agree to the Privacy Policy and Terms of Service');
+return;
+}
+
+// Redirect to index.html on success
+alert('Login successful! Welcome back to FΛLC.');
+window.location.href = 'index.html';
+});
+});
+</script>
+</body>
+</html>
